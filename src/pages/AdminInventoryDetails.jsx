@@ -9,11 +9,10 @@ export default function AdminInventoryDetails() {
     <div>
       <button
         onClick={() => navigate('/admin')}
-        className="text-slate-400 hover:text-slate-100 text-sm mb-6 flex items-center gap-1 transition-colors"
+        className="flex items-center gap-2 text-gray-500 hover:text-gray-900 mb-6 transition text-sm"
       >
         ← Назад до списку
       </button>
-      <h1 className="text-2xl font-bold text-slate-100 mb-6">Деталі позиції</h1>
       <InventoryDetails id={id} />
     </div>
   )

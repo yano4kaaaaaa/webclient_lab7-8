@@ -6,11 +6,11 @@ import InventoryQuickView from './InventoryQuickView'
 
 function SkeletonCard() {
   return (
-    <div className="skeleton-card">
-      <div className="skeleton-img" />
-      <div className="skeleton-footer">
-        <div className="skeleton-text" />
-        <div className="skeleton-circle" />
+    <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden animate-pulse">
+      <div className="h-48 bg-gray-200" />
+      <div className="p-4 flex justify-between items-center">
+        <div className="h-4 bg-gray-200 rounded w-2/3" />
+        <div className="h-5 w-5 bg-gray-200 rounded-full" />
       </div>
     </div>
   )
@@ -21,25 +21,27 @@ export default function InventoryGallery({ filterIds = null }) {
   const { isFav, toggle } = useFavorites()
   const [selectedId, setSelectedId] = useState(null)
 
-  const displayed = filterIds ? items.filter((i) => filterIds.includes(i.id)) : items
+  const displayed = filterIds
+    ? items.filter((i) => filterIds.includes(i.id))
+    : items
 
   if (loading) return (
-    <div className="gallery-grid">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
       {[...Array(8)].map((_, i) => <SkeletonCard key={i} />)}
     </div>
   )
 
   if (error) return (
-    <div className="state-center state-error">
-      <div className="state-icon">⚠️</div>
-      <span className="state-text">{error}</span>
+    <div className="flex flex-col items-center justify-center py-20 text-red-500">
+      <span className="text-4xl mb-3">⚠️</span>
+      <span>{error}</span>
     </div>
   )
 
   if (!displayed.length) return (
-    <div className="state-center">
-      <div className="state-icon">📭</div>
-      <span className="state-text">
+    <div className="flex flex-col items-center justify-center py-20 text-gray-400">
+      <span className="text-5xl mb-4">📭</span>
+      <span className="text-lg">
         {filterIds ? 'Немає улюблених позицій' : 'Інвентар порожній'}
       </span>
     </div>
@@ -47,7 +49,7 @@ export default function InventoryGallery({ filterIds = null }) {
 
   return (
     <>
-      <div className="gallery-grid">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {displayed.map((item) => (
           <InventoryCard
             key={item.id}
@@ -60,7 +62,10 @@ export default function InventoryGallery({ filterIds = null }) {
       </div>
 
       {selectedId && (
-        <InventoryQuickView id={selectedId} onClose={() => setSelectedId(null)} />
+        <InventoryQuickView
+          id={selectedId}
+          onClose={() => setSelectedId(null)}
+        />
       )}
     </>
   )

@@ -21,9 +21,7 @@ export function InventoryProvider({ children }) {
     }
   }
 
-  useEffect(() => {
-    fetchItems()
-  }, [])
+  useEffect(() => { fetchItems() }, [])
 
   return (
     <InventoryContext.Provider value={{ items, loading, error, fetchItems }}>

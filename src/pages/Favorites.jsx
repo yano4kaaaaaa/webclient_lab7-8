@@ -6,10 +6,12 @@ export default function Favorites() {
 
   return (
     <div>
-      <h1 className="page-title" style={{ marginBottom: 24 }}>
-        ❤️ Улюблені
-        <span className="fav-count">{favorites.length}</span>
-      </h1>
+      <div className="flex items-center gap-3 mb-6">
+        <h1 className="text-2xl font-bold text-gray-900">❤️ Улюблені</h1>
+        <span className="bg-emerald-100 text-emerald-700 text-sm font-semibold px-3 py-0.5 rounded-full">
+          {favorites.length}
+        </span>
+      </div>
       <InventoryGallery filterIds={favorites} />
     </div>
   )

@@ -1,0 +1,22 @@
+{
+  "inventory": [
+    {
+      "id": "1777924874112",
+      "inventory_name": "ffff",
+      "description": "fff",
+      "inventory_image": "/images/1777924874109-Figure_1.png"
+    },
+    {
+      "id": "1777924960166",
+      "inventory_name": "ааа",
+      "description": "ааа",
+      "inventory_image": "/images/1777924960156-Kozak-bandyryst_(18th_century).jpg"
+    },
+    {
+      "id": "1777925096812",
+      "inventory_name": "ссссссссс",
+      "description": "ссааааааа",
+      "inventory_image": "/images/1777925096805-drawing_1775031072829.png"
+    }
+  ]
+}
